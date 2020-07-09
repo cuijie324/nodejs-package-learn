@@ -1,5 +1,10 @@
 {
   "devDependencies": {
     "eslint": "^4.2.0"
+  },
+  "dependencies": {
+    "ping": "^0.2.3",
+    "ramda": "^0.27.0",
+    "rx": "^4.1.0"
   }
 }

@@ -22,7 +22,7 @@ function ping (host) {
     })
 }
 
-var tasks = R.range(2, 254).map(i => ping(`192.168.50.${i}`))
+var tasks = R.range(2, 254).map(i => ping(`192.168.3.${i}`))
 Rx.Observable
     .merge(...tasks)
     .subscribe(
