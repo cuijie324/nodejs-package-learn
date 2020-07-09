@@ -1,0 +1,42 @@
+<html>
+
+<body>
+    <a href="#" onclick="bench.run({async: true}); return false;">run test</a>
+    <div id="mydiv"></div>
+
+    <script src="https://cdn.bootcss.com/benchmark/1.0.0/benchmark.js"></script>
+    <script>
+        var bench = new Benchmark('insertNode',
+
+            // The function to test
+            function () {
+                // console.log('iteration', i++);
+                mydiv.insertAdjacentHTML('beforeend', '<span></span>');
+            },
+
+            // Additional options for the test
+            {
+                'setup': function () {
+                    // console.log('setup');
+                    let i = 1;
+                    var mydiv = document.getElementById('mydiv');
+                },
+                'teardown': function () {
+                    // console.log('teardown');
+                    mydiv.innerHTML = '';
+                },
+                'onStart': function (event) {
+                    console.log('onStart', event)
+                },
+                'onCycle': function (event) {
+                    // console.log('onCycle', event);
+                    console.log('onCycle', event.target.stats.sample.length);
+                },
+                'onComplete': function (event) {
+                    console.log('onComplete', event);
+                }
+            });
+    </script>
+</body>
+
+</html>
