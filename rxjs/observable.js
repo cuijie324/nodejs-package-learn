@@ -106,7 +106,7 @@ const { Observer } = require('rx');
                 subscriber.next('hi');
             }, 1000);
 
-            return function unscriber () {
+            return function unsubscribe () {
                 clearInterval(intervalId);
             }
         });
